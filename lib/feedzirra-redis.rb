@@ -29,7 +29,8 @@ module FeedzirraRedis
 
     def add_entries(entries)
       entries.each do |entry|
-        Entry.first_or_create( {:guid => entry.guid}, {
+        unique_id = entry.id || entry.url
+        redis_entry = Entry.first_or_create( {:guid => unique_id}, {
           :title        => entry.title,
           :summary      => entry.summary,
           :url          => entry.url,
@@ -43,19 +44,22 @@ module FeedzirraRedis
       if urls.is_a?(String)
         feed = Feedzirra::Feed.fetch_and_parse(urls, options)
         update_redis_from feed
-      else
+      elsif urls.is_a?(Array)
         feeds = Feedzirra::Feed.fetch_and_parse(urls, options)
         redis_feeds = {}
         feeds.map do |feed|
           redis_feed = update_redis_from feed
           redis_feeds.merge!(redis_feed.feed_url => redis_feed)
         end
+      else
+        raise "Unexpected urls class #{urls.class}"
       end
     end
 
     # Delegate for compatibility
     def self.update(feeds, options = {})
-      self.fetch_and_parse(feeds, options)
+      feeds.is_a?(Array) ? urls = feeds.map { |f| f.feed_url } : urls = feeds.feed_url
+      self.fetch_and_parse(urls, options)
     end
 
   private
@@ -67,11 +71,8 @@ module FeedzirraRedis
         :etag          => feed.etag,
         :last_modified => feed.last_modified
       })
-      feed.entries.each do |feed_entry|
-        redis_feed.entries.first_or_create({ :id => feed_entry.id }, {
-        })
-
-      end
+      redis_feed.add_entries(feed.entries)
+      redis_feed.save
       return redis_feed
     end
   end

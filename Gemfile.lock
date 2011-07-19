@@ -20,7 +20,6 @@ GEM
       json (~> 1.4.6)
       stringex (~> 1.2.0)
       uuidtools (~> 2.1.2)
-    fakeweb (1.3.0)
     fastercsv (1.5.4)
     feedzirra (0.0.24)
       activesupport (>= 2.3.8)
@@ -55,7 +54,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.0.0)
   dm-redis-adapter
-  fakeweb
   feedzirra
   i18n
   jeweler (~> 1.6.2)

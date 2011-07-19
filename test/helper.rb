@@ -15,11 +15,6 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'feedzirra-redis'
 
 DataMapper.setup(:default, {:adapter => 'redis'})
-FEED_URL = 'http://search.twitter.com/search.atom?q=monkeys'
-
-require 'fakeweb'
-FakeWeb.register_uri( :get, FEED_URL,
-                      :body => File.read('test/fixtures/monkeys_old.atom') )
 
 class Test::Unit::TestCase
 end
