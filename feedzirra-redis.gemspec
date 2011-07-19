@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "feedzirra-redis.gemspec",
     "lib/feedzirra-redis.rb",
     "test/fixtures/monkeys_new.atom",
     "test/fixtures/monkeys_old.atom",
