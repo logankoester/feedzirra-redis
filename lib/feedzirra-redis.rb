@@ -1,6 +1,6 @@
-%w{rubygems feedzirra dm-core dm-redis-adapter}.each { |f| require f }
+%w{rubygems feedjira dm-core dm-redis-adapter}.each { |f| require f }
 
-module FeedzirraRedis
+module  FeedzirraRedis
 
   class Entry
     include DataMapper::Resource
@@ -42,10 +42,10 @@ module FeedzirraRedis
 
     def self.fetch_and_parse(urls, options = {})
       if urls.is_a?(String)
-        feed = Feedzirra::Feed.fetch_and_parse(urls, options)
+        feed = Feedjira::Feed.fetch_and_parse(urls, options)
         update_redis_from feed
       elsif urls.is_a?(Array)
-        feeds = Feedzirra::Feed.fetch_and_parse(urls, options)
+        feeds = Feedjira::Feed.fetch_and_parse(urls, options)
         redis_feeds = {}
         feeds.map do |feed|
           redis_feed = update_redis_from feed
@@ -76,5 +76,6 @@ module FeedzirraRedis
       return redis_feed
     end
   end
-
+  DataMapper.finalize
 end
+
