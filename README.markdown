@@ -51,5 +51,5 @@ See the [Feedzirra](https://github.com/pauldix/feedzirra) documentation or [read
 
 ## Copyright
 
-Copyright (c) 2011 Logan Koester. See LICENSE.txt for
+Copyright (c) 2011-2014 Logan Koester. See LICENSE.txt for
 further details.
