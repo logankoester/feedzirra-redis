@@ -1,5 +1,7 @@
 # feedzirra-redis
 
+> Since `v1.0.0`, [feedjira](https://github.com/feedjira/feedjira) replaces feedzirra. All future development has moved to [feedjira-redis](https://github.com/logankoester/feedjira-redis). Please update your projects accordingly.
+
 FeedzirraRedis uses Datamapper's dm-redis-adapter to provide a persistance layer for the [Feedzirra](https://github.com/pauldix/feedzirra) RSS/Atom feed consumption library.
 
 ## Example Usage
