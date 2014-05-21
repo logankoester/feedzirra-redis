@@ -1,1 +1,1 @@
-rvm --create 1.9.2@feedzirra_redis_gem
+rvm --create ruby-2.0.0@feedzirra_redis_gem
