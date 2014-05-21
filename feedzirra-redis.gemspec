@@ -4,17 +4,17 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{feedzirra-redis}
-  s.version = "0.1.1"
+  s.name = "feedzirra-redis"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Logan Koester"]
-  s.date = %q{2011-07-19}
-  s.description = %q{Dead simple feed persistance... because you shouldn't need a MySQL server just to include a few RSS items on a page}
-  s.email = %q{lkoester@agoragames.com}
+  s.date = "2014-05-21"
+  s.description = "Dead simple feed persistance... because you shouldn't need a MySQL server just to include a few RSS items on a page"
+  s.email = "lkoester@agoragames.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.markdown"
   ]
   s.files = [
     ".document",
@@ -22,51 +22,47 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.markdown",
     "Rakefile",
     "VERSION",
     "feedzirra-redis.gemspec",
     "lib/feedzirra-redis.rb",
-    "test/fixtures/monkeys.atom",
     "test/fixtures/monkeys_new.atom",
     "test/fixtures/monkeys_old.atom",
     "test/helper.rb",
     "test/test_feedzirra-redis.rb"
   ]
-  s.homepage = %q{http://github.com/logankoester/feedzirra-redis}
+  s.homepage = "http://github.com/logankoester/feedzirra-redis"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{Dead simple feed persistance}
+  s.rubygems_version = "2.0.14"
+  s.summary = "Dead simple feed persistance"
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<dm-redis-adapter>, [">= 0"])
-      s.add_runtime_dependency(%q<feedzirra>, [">= 0"])
+      s.add_runtime_dependency(%q<feedjira>, [">= 0"])
       s.add_runtime_dependency(%q<i18n>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6.2"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 2.0.1"])
     else
       s.add_dependency(%q<dm-redis-adapter>, [">= 0"])
-      s.add_dependency(%q<feedzirra>, [">= 0"])
+      s.add_dependency(%q<feedjira>, [">= 0"])
       s.add_dependency(%q<i18n>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.6.2"])
-      s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 2.0.1"])
     end
   else
     s.add_dependency(%q<dm-redis-adapter>, [">= 0"])
-    s.add_dependency(%q<feedzirra>, [">= 0"])
+    s.add_dependency(%q<feedjira>, [">= 0"])
     s.add_dependency(%q<i18n>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.6.2"])
-    s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 2.0.1"])
   end
 end
 
